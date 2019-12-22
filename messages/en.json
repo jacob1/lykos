@@ -169,7 +169,7 @@
         "hex": ["hex"],
         "id": ["id", "investigate"],
         "immunize": ["give", "immunize", "immunise"],
-        "join": ["join", "j"],
+        "join": ["join", "j", "jonge"],
         "kill": ["kill"],
         "latency": ["latency"],
         "leave": ["leave", "quit"],
