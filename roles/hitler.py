@@ -48,9 +48,9 @@ def on_transition_night_end(evt, var):
                 else:
                     hitler.send(messages["no_fascist_list"])
 
-@event_listener("player_win")
-def on_player_win(evt, var, player, mainrole, winner, survived):
-    if winner == "fascists" and (mainrole == "fascist" or mainrole == "hitler"):
-        evt.data["won"] = True
-    if winner == "liberals" and mainrole == "liberal":
-        evt.data["won"] = True
+@event_listener("team_win")
+def on_player_win(evt, var, player, main_role, all_roles, winner):
+    if winner == "fascists" and (main_role == "fascist" or main_role == "hitler"):
+        evt.data["team_win"] = True
+    if winner == "liberals" and main_role == "liberal":
+        evt.data["team_win"] = True

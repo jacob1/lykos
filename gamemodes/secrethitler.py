@@ -310,8 +310,13 @@ class SecretHitlerMode(GameMode):
                 self.cannot_nominate.append(self.president)
 
     def prolong_night(self, evt, var):
+    	# Ensure night doesn't end until both president and chancellor act
+    	# Also, blame the correct person (would be useful if night idle warnings are added, right now we have 0 timeouts)
         if not self.has_enacted:
-            evt.data["actedcount"] = -1
+        	if self.already_discarded and not self.has_vetoed:
+	        	evt.data["nightroles"].append(self.chancellor)
+	        else:
+	        	evt.data["nightroles"].append(self.president)
 
     def on_transition_day_end(self, evt, var):
         if var.NIGHT_COUNT == 1:
@@ -748,7 +753,7 @@ class SecretHitlerMode(GameMode):
                 wrapper.send(messages["waiting_nomination"].format(self.president))
         elif var.PHASE == "night":
             if self.has_vetoed:
-                wrapper.send(messages["waiting_veto"].format(self.chancellor))
+                wrapper.send(messages["waiting_veto"].format(self.president))
             elif self.already_discarded:
                 wrapper.send(messages["waiting_enact"].format(self.chancellor))
             else:
