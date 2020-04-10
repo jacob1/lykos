@@ -47,6 +47,15 @@
             "{0:@} realizes the dangers of Fascism, and pursues a culinary career instead."
         ]
     },
+    "gifs": {
+        "merge_strategy" : "replace",
+        "value" : [
+            "https://i.imgur.com/WFJkNXc.jpg",
+            "https://i.imgur.com/4VgTxRX.gifv",
+            "https://i.imgur.com/TRbDcOX.gifv",
+            "https://i.imgur.com/bC6KdKF.gifv"
+        ]
+    },
 
     "new_game": "{0:@} has started a game of Secret Hitler. Type \"{=join!command:!}\" to join. Type \"{=start!command:!}\" to vote to start the game. Type \"{=wait!command:!}\" to increase the start wait time. For more information about the game, go to https://secrethitler.io/rules",
 
@@ -156,5 +165,20 @@
     "president_idled_day" : "While campaigning, the president suffers a sudden stroke and dies. Play will now move onto the next president, and the chaos counter increases by 1.",
     "chancellor_idled_day" : "While campaigning, the chancellor suffers a sudden stroke and dies. The president must now nominate a new chancellor.",
     "president_idled_night" : "While on a hunting trip, the president is accidentally shot. Without a leader, the government falls into chaos, no policies are enacted, and a new president must be selected.",
-    "chancellor_idled_night" : "The chancellor has been assassinated in a terrorist plot. The government falls into chaos, no policies are enacted, and a new president must be selected."
+    "chancellor_idled_night" : "The chancellor has been assassinated in a terrorist plot. The government falls into chaos, no policies are enacted, and a new president must be selected.",
+
+    "idle_death": "{0:@} didn't show up for their seat in the Reichstag in over 3 weeks. The {1!role:bold} has been removed from office.",
+    "idle_death_no_reveal": "{0:@} didn't show up for their seat in the Reichstag in over 3 weeks, and has been removed from office.",
+    "channel_idle_warning": "{0:join_simple}: [b]You have been idling for a while. Please say something soon or you will be removed from your seat in the Reichstag.[/b]",
+    "player_idle_warning": "[b]You have been idling in {0:#} for a while. Please say something in {0:#} or you will be removed from your seat in the Reichstag.[/b]",
+    "part_grace_time_notice": "It appears you have left {chan:#}. Please rejoin within {0} seconds or you will be removed from your seat in the Reichstag.",
+    "account_grace_time_notice": "It appears you have changed accounts. Please change back to your original account within {0} seconds or you will be removed from your seat in the Reichstag.",
+    "quit_death": "{0:@} has quit their seat in the Reichstag to join the communists. The former {1!role:bold} was immediately arrested and thrown in jail.",
+    "quit_death_no_reveal": "{0:@} has quit their seat in the Reichstag to join the communists. They were immediately arrested and thrown in jail.",
+    "part_death": "{0:@}, {1!role:article} {1!role:bold}, fell out of favor in their party and was not re-elected.",
+    "part_death_no_reveal": "{0:@} fell out of favor in their party and was not re-elected.",
+    "account_death": "{0:@}, {1!role:article} {1!role:bold}, was shot dead by a member of the KPD party.",
+    "account_death_no_reveal": "{0:@} was shot dead by a member of the KPD party.",
+    "leave_death": "{0:@} set fire to the Reichstag building. The {1!role:bold} was put on trial and executed.",
+    "leave_death_no_reveal": "{0:@} set fire to the Reichstag building, and was swiftly put on trial and executed."
 }
