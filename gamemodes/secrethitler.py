@@ -167,7 +167,11 @@ class SecretHitlerMode(GameMode):
                     decorators.COMMANDS[alias].remove(command)
                 else:
                     del decorators.COMMANDS[alias]
-        
+
+        # Some nonsense I will figure out later
+        if not hasattr(self, "nominate_command"):
+            return
+
         remove_command("nominate", self.nominate_command)
         remove_command("vote", self.vote_command)
         remove_command("yes", self.yes_command)
