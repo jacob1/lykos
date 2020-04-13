@@ -316,13 +316,13 @@ class SecretHitlerMode(GameMode):
                 self.cannot_nominate.append(self.president)
 
     def prolong_night(self, evt, var):
-    	# Ensure night doesn't end until both president and chancellor act
-    	# Also, blame the correct person (would be useful if night idle warnings are added, right now we have 0 timeouts)
+        # Ensure night doesn't end until both president and chancellor act
+        # Also, blame the correct person (would be useful if night idle warnings are added, right now we have 0 timeouts)
         if not self.has_enacted:
-        	if self.already_discarded and not self.has_vetoed:
-	        	evt.data["nightroles"].append(self.chancellor)
-	        else:
-	        	evt.data["nightroles"].append(self.president)
+            if self.already_discarded and not self.has_vetoed:
+                evt.data["nightroles"].append(self.chancellor)
+            else:
+                evt.data["nightroles"].append(self.president)
 
     def on_transition_day_end(self, evt, var):
         if var.NIGHT_COUNT == 1:
@@ -437,7 +437,7 @@ class SecretHitlerMode(GameMode):
                 channels.Main.send(messages["president_idled_night"])
                 self.agenda_vetoed()
         elif var.PHASE == "day":
-        	self.count_votes()
+            self.count_votes()
 
     def count_votes(self):
         registered_voters = len(get_players())
@@ -496,12 +496,16 @@ class SecretHitlerMode(GameMode):
         else:
             card = self.cards.pop(0)
         self.enact(card)
-
+        
         channels.Main.send(messages["chaos_government"])
         reveal = messages["chaos_reveal"].format(self.card_name(card))
         if self.get_executive_action(self.enacted.count("F")):
             reveal = reveal + messages["chaos_reveal_noaction"]
         channels.Main.send(reveal)
+
+        num_liberal = self.enacted.count("L")
+        num_fascist = self.enacted.count("F")
+        channels.Main.send(messages["legislative_end2"].format(num_liberal, num_fascist))
         if force_reshuffle:
             channels.Main.send(messages["chaos_reshuffle"])
 
