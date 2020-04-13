@@ -246,7 +246,7 @@ class SecretHitlerMode(GameMode):
         else:
             raise Exception("Player {0} has role {1} with unknoan allegiance".format(player, role))
 
-    def consider_new_policies(self):
+    def consider_new_policies(self, *, force_reshuffle=False):
         # Policies under consideration weren't cleared. This should only happen when a chaos government happens.
         if len(self.policies):
             if len(self.policies) != 2:
@@ -255,6 +255,8 @@ class SecretHitlerMode(GameMode):
         if len(self.cards) < 3:
             self.reshuffle()
             channels.Main.send(messages["reshuffled"])
+        if force_reshuffle:
+            random.shuffle(self.cards)
         self.policies = self.cards[0:3]
         del self.cards[0:3]
         self.already_discarded = False
@@ -483,10 +485,13 @@ class SecretHitlerMode(GameMode):
     def chaos_government(self):
         self.chaos_counter = 0
         self.cannot_nominate.clear()
+        force_reshuffle = False
         # Policies are popped off self.cards at the beginning of day, but are still "in" the card pile
         if len(self.policies):
             card = self.policies.pop(0)
-            self.consider_new_policies()
+            # Force a reshuffle and send out a message (unless there was going to be a reshuffle anyway)
+            force_reshuffle = len(self.cards) + len(self.policies) >= 3
+            self.consider_new_policies(force_reshuffle=force_reshuffle)
         # During veto chaos governments, all policies have already been discarded, take from normal card pile
         else:
             card = self.cards.pop(0)
@@ -497,6 +502,8 @@ class SecretHitlerMode(GameMode):
         if self.get_executive_action(self.enacted.count("F")):
             reveal = reveal + messages["chaos_reveal_noaction"]
         channels.Main.send(reveal)
+        if force_reshuffle:
+            channels.Main.send(messages["chaos_reshuffle"])
 
     def notify_president(self):
         card1 = self.card_name(self.policies[0])
