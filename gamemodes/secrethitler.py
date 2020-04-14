@@ -542,6 +542,7 @@ class SecretHitlerMode(GameMode):
         elif action == "Execution":
             self.can_execute.append(self.president)
             self.president.send(messages["execute_instructions"])
+            print(self.can_execute)
         else:
             raise Exception("Invalid executive action: " + action)
         return True
@@ -696,10 +697,14 @@ class SecretHitlerMode(GameMode):
     def execute_cmd(self, var, wrapper, message):
         """Select a person to be executed. They will be removed from the game, and if they were hitler, the Liberals will win."""
 
+        print("In execute_cmd: " + str(message))
         msg = re.split(" +", message)[0].strip()
+        print(str(msg))
         to_execute = get_target(var, wrapper, msg, not_self_message="no_execute_self")
+        print(str(to_execute))
         if not to_execute:
             return
+        print("going to do execution")
         self.can_execute.clear()
 
         executed_role = get_main_role(to_execute)
@@ -753,6 +758,7 @@ class SecretHitlerMode(GameMode):
                     wrapper.send(messages["waiting_special_election"].format(self.president))
                 elif self.current_action == "Execution":
                     wrapper.send(messages["waiting_execution"].format(self.president))
+                    print(self.can_execute)
                 else:
                     raise Exception("Unsure what the current executive action is")
                 return
