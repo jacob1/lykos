@@ -354,7 +354,9 @@ class SecretHitlerMode(GameMode):
 
         self.consider_new_policies()
 
-        if self.to_enact == "F":
+        was_enacted = self.to_enact
+        self.to_enact = None
+        if was_enacted == "F":
             num_fascist = self.enacted.count("F")
             action = self.get_executive_action(num_fascist)
             if action:
@@ -364,7 +366,6 @@ class SecretHitlerMode(GameMode):
                     return
                 self.current_action = None
 
-        self.to_enact = None
         # Don't change president on the fake first night
         if var.NIGHT_COUNT > 1:
             self.next_president()
