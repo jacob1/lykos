@@ -14,16 +14,6 @@ from src.messages import messages
 from src.status import try_misdirection, try_exchange
 from src.cats import Hidden
 
-# Hitler is considered to be in "Wolfchat", so will have the role information sent out by helper/wolves.py
-@event_listener("transition_night_end", priority=2)
-def on_transition_night_end(evt, var):
-    if var.NIGHT_COUNT == 1 or var.ALWAYS_PM_ROLE:
-        hitlers = get_players({"hitler"})
-        if hitlers:
-            for hitler in hitlers:
-                hitler.queue_message(messages["hitler_notify"])
-            hitler.send_messages()
-
 @event_listener("get_role_metadata")
 def on_get_role_metadata(evt, var, kind):
     if kind == "role_categories":
@@ -31,10 +21,14 @@ def on_get_role_metadata(evt, var, kind):
 
 @event_listener("transition_night_end", priority=2.1)
 def on_transition_night_end(evt, var):
-    if var.NIGHT_COUNT == 1:
+    if var.NIGHT_COUNT == 1 or var.ALWAYS_PM_ROLE:
         num_players = len(var.ALL_PLAYERS)
         hitlers = get_players({"hitler"})
         if hitlers:
+            for hitler in hitlers:
+                hitler.queue_message(messages["hitler_notify"])
+            hitler.send_messages()
+
             fascists = get_players({"fascist"})
             for hitler in hitlers:
                 if num_players < 7:
