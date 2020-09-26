@@ -139,7 +139,7 @@
     "winner_by_fascism" : "Game over! Six Fascist policies have been enacted, allowing the Fascists to install the Hitler as the Chancellor by force. The coup is but a hint of things to come, for the Fascists have won the game.",
     "winner_by_liberalism" : "Game over! Five Liberal policies have been enacted, causing the Liberals to secure their place as the rightful leaders of Germany. The Liberals win the game!",
     "winner_by_execution" : "Game over! The Hitler has been executed, ensuring that the Fascists will never be able to seize power. The Liberals have won the game!",
-    "winner_by_idle" : "Game over! Hitler has unexpectedly choked to death. With no obvious leader to replace him, the Fascists fade into obscurity. The Liberals have won the game!",
+    "winner_by_idle" : "Game over! Hitler has unexpectedly choked to death on a pretzel. With no obvious leader to replace him, the Fascists fade into obscurity. The Liberals have won the game!",
 
     "show_table" : "There are {0} cards left in the policy deck, and {1} in the discard pile. These policies have been previously enacted: {2:join}",
     "show_track" : "The following executive actions unlock after the indicated number of fascist policies: {0:join}",
