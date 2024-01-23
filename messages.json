@@ -1,8 +1,10 @@
 {
+    "shitler_deleted_message" : "",
+
     "_roles": {
         "liberal" : ["liberal", "liberals"],
         "fascist" : ["fascist", "fascists"],
-        "hitler" : ["hitler", "hitlers"]
+        "hitler" : ["Hitler", "Hitlers"]
     },
     "_cards": {
         "L" : "Liberal",
@@ -47,15 +49,12 @@
             "{0:@} realizes the dangers of Fascism, and pursues a culinary career instead."
         ]
     },
-    "gifs": {
-        "merge_strategy" : "replace",
-        "value" : [
-            "https://i.imgur.com/WFJkNXc.jpg",
-            "https://i.imgur.com/4VgTxRX.gifv",
-            "https://i.imgur.com/TRbDcOX.gifv",
-            "https://i.imgur.com/bC6KdKF.gifv"
-        ]
-    },
+    "gifs": [
+        "https://i.imgur.com/WFJkNXc.jpg",
+        "https://i.imgur.com/4VgTxRX.gifv",
+        "https://i.imgur.com/TRbDcOX.gifv",
+        "https://i.imgur.com/bC6KdKF.gifv"
+    ],
 
     "new_game": "{0:@} has started a game of Secret Hitler. Type \"{=join!command:!}\" to join. Type \"{=start!command:!}\" to vote to start the game. Type \"{=wait!command:!}\" to increase the start wait time. For more information about the game, go to https://secrethitler.io/rules",
 
@@ -158,7 +157,6 @@
     "welcome_shitler" : "{0:join}: Welcome to Secret Hitler. Set in pre-WW2 Germany, you must fight to preserve a fragile Liberal government from the threat of expanded Fascism. One of the players among you may even be a secret Hitler.",
     "welcome_commands" : "The following commands may be used to give information about the game: \"{=status!command:!}\" - Status on which players the game is waiting on; \"{=cards!command:!}\" - Lists previously enacted policies; \"{=showtrack!command:!}\" - Lists executive actions",
     "day_lasted_shitler" : "Quiet please - All player communication - [b]including private messages[/b] - is forbidden while the Reichstag is in session.",
-    "first_night_begin_shitler" : "Your assigned roles have been sent out. All players check for PMs from me for instructions.",
     "night_begin_shitler" : "President and Chancellor, please check your private messages for instructions. Everyone else, please wait for the Legislative Session to end.",
     "endgame_stats_shitler": "Game lasted [b]{0:0>2}:{1:0>2}[/b]. [b]{2:0>2}:{3:0>2}[/b] was spent forming governments. [b]{4:0>2}:{5:0>2}[/b] was spent choosing policies. ",
 

@@ -17,9 +17,9 @@ for f in glob.iglob(search):
         continue
     importlib.import_module("." + n, package="roles")
 
-# Important: if this isn't defined, built-in roles will
-# be imported. Normally this isn't an issue, but if you
-# are attempting to suppress the import of built-in roles
-# then that might be an issue for you.
+# Important: if this isn't defined or is False,
+# built-in roles will be imported.
+# Normally this isn't an issue, but if you are
+# attempting to suppress the import of built-in roles
+# then change this to True
 CUSTOM_ROLES_DEFINED = True
-
