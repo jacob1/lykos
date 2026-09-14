@@ -13,7 +13,7 @@ from src.status import add_dying, kill_players
 from src.users import User
 from src import channels, config
 
-@game_mode("shitler", minp=5, maxp=10, likelihood=1)
+@game_mode("shitler", minp=5, maxp=10)
 class SecretHitlerMode(GameMode):
     cards : list[str]
     discard : list[str]
